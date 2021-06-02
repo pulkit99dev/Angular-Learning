@@ -1,0 +1,68 @@
+<!-- // todo application based on its features & implementing functionality -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo in Angularjs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+</head>
+<body ng-app='myApp' ng-controller='todoController'>
+        <form ng-submit="addTodo()">
+        <p>Provide task<input type="text"  ng-model="task"></p>
+        <p>Select a date <input type="date" ng-model="date"></p>
+        <p>Choose time <input type="time" ng-model="time"></p>
+        <p>Add a category <input type="text"  ng-model="category"></p>
+        <input type="submit" value="submit" />
+        </form>
+
+
+    <div>
+        <ul ng-repeat = "record in todoTasks" >
+            <li><input type="checkbox" ng-model="record.done">&nbsp;&nbsp;{{ record.task }}</li>
+            <small>{{ record.date }}</small>
+            <small>{{ record.time}}</small>
+            <small>{{ record.category }}</small>
+            
+            <div ng-show="record.done">
+                <input type="button" value="delete-marked" ng-click="deleteTask()">
+                    </div>
+        </ul>
+    </div>
+
+    
+    <br>
+    <br>
+   
+    <script>
+
+
+// new Date().getDate() + '-' + new Date().getMonth() + '-'+ new Date().getFullYear() + ' ' +new Date().getHours() + ':'+ new Date().getMinutes() +':' +new Date().getSeconds(),
+
+        // creating the module
+myApp = angular.module('myApp', []);
+
+// registering the controller to the module
+myApp.controller('todoController', function($scope){
+    $scope.todoTasks= [];
+    $scope.addTodo = function(){
+        $scope.todoTasks.push({
+            'task': $scope.task,
+             done:false,
+            'date': $scope.date,
+            'time': $scope.time,
+            'category': $scope.category
+        });
+    };
+
+    $scope.deleteTask = function(){
+        var oldTasks = $scope.todoTasks;
+        $scope.todoTasks = [];
+        angular.forEach(oldTasks, function(record) {
+            if (!record.done) $scope.todoTasks.push(record);
+        });
+    }
+})
+    </script>
+</body>
+</html>

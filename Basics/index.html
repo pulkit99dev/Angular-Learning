@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Practicing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body ng-app="myApp" >
+    
+    <!-- Two way binding -->
+    <!-- <div ng-controller="leController">
+        <table >
+            <tr>
+                <td>F-Name</td>
+                <td><input type="text" ng-model="student.firstName" ></td>
+            </tr>
+            <tr>
+                <td>L-Name</td>
+                <td><input type="text" ng-model="student.lastName"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" ng-model="student.age"></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table >
+            <tr>
+                <td>F-Name</td>
+                <td>{{ student.firstName }}</td>
+            </tr>
+            <tr>
+                <td>L-Name</td>
+                <td>{{ student.lastName }}</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>{{ student.age }}</td>
+            </tr>
+        </table>
+    </div> -->
+
+    <!-- ng-repeat -->
+
+    <!-- <div ng-controller="myController">
+        <table>
+            <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Salary</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.age}}</td>
+                    <td>{{employee.salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+
+    <div ng-controller="myController">
+
+        <!-- Event Handler Click -->
+        <table>
+            <tr></tr>
+        </table>
+
+    <!-- <ul>
+        <li ng-repeat="country in countries">
+            {{country.name}} - Index = {{$index}}
+            <ul>
+                <li ng-repeat="city in country.cities">
+                    {{city.name}} -ParentIndex = {{$parent.$index}}, Index = {{$index}}
+                </li>
+            </ul>
+        </li>
+    </ul> -->
+    </div>
+
+</body>
+</html>
