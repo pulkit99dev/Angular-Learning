@@ -4,8 +4,39 @@
     <title>Practicing</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="index.js"></script>
+
+    <style>
+        table, th, tr, td{
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body ng-app="myApp" >
+
+    <div ng-controller="myController">
+        <!-- Filter -->
+        <p>Number of Rows <input type="number" step="1" min="0" max='5' ng-model="rowLimit"></p>
+        <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Salary(number)</th>
+                <th>Salary(currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freak in drivers | limitTo:rowLimit:0">
+                    <td>{{ freak.name | uppercase }}</td>
+                    <td>{{ freak.dob | date:"dd/MM/yy"}}</td>
+                    <td>{{ freak.gender | lowercase }}</td>
+                    <td>{{ freak.salary | number:2 }}</td>
+                    <td>{{ freak.salary | currency:"₹":1 }}</td>
+                </tr>
+            </tbody>
+        </table>
     
     <!-- Two way binding -->
     <!-- <div ng-controller="leController">
@@ -64,12 +95,17 @@
         </table>
     </div> -->
 
-    <div ng-controller="myController">
 
         <!-- Event Handler Click -->
-        <table>
-            <tr></tr>
-        </table>
+        <!-- <table>
+            <tr ng-repeat="tech in technologies">
+                <td>{{tech.name}}</td>
+                <td>{{tech.likes}}</td>
+                <td>{{tech.dislikes}}</td>
+                <td><button ng-click="incrementLikes(tech)">Likes</button></td>
+                <td><button ng-click="incrementDislikes(tech)">Dislikes</button></td>
+            </tr>
+        </table> -->
 
     <!-- <ul>
         <li ng-repeat="country in countries">
