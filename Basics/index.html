@@ -15,24 +15,44 @@
 <body ng-app="myApp" >
 
     <div ng-controller="myController">
+
+        <input type="checkbox" ng-model="hideSalary">Hide Salary
+        <input type="checkbox" ng-model="showGender">Show Gender
+        <br>
+
         <!-- Filter -->
-        <p>Number of Rows <input type="number" step="1" min="0" max='5' ng-model="rowLimit"></p>
+        <!-- Sorting Data -->
+        <!-- Search Data -->
+        <!-- Search By Name : <input type="text" ng-model="searchText" placeholder="Search name & gender"> -->
+        <!-- Search By City: <input type="text" ng-model="searchText.gender">
+        Search Exactly : <input type="checkbox" ng-model="exactMatch"> -->
+        <!-- <p>Number of Rows <input type="number" step="1" min="0" max='5' ng-model="rowLimit"></p> -->
+        <!-- Order By : <select ng-model="sortColumn"> -->
+                        <!-- <option value="name">Name ASC</option>
+                        <option value="-name">Name DSC</option>
+                        <option value="gender">Gender ASC</option>
+                        <option value="-salary">Salary DSC</option>
+                        <option value="+salary">Salary ASC</option>
+                   </select> -->
         <table>
             <thead>
                 <tr>
                 <th>Name</th>
                 <th>DOB</th>
-                <th>Gender</th>
-                <th>Salary(number)</th>
+                <th ng-show="showGender">Gender</th>
+                <th ng-hide="hideSalary">Salary(number)</th>
                 <th>Salary(currency)</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="freak in drivers | limitTo:rowLimit:0">
+                <!-- | orderBy:sortColumn | limitTo:rowLimit:0 | filter:search -->
+
+                <!-- ng show & hide -->
+                <tr ng-repeat="freak in drivers ">
                     <td>{{ freak.name | uppercase }}</td>
                     <td>{{ freak.dob | date:"dd/MM/yy"}}</td>
-                    <td>{{ freak.gender | lowercase }}</td>
-                    <td>{{ freak.salary | number:2 }}</td>
+                    <td ng-show="showGender">{{ freak.gender | lowercase }}</td>
+                    <td ng-hide="hideSalary">{{ freak.salary | number:2 }}</td>
                     <td>{{ freak.salary | currency:"₹":1 }}</td>
                 </tr>
             </tbody>

@@ -34,7 +34,21 @@ var app = angular
                     }
                 ];
                 $scope.rowLimit = 5;
+                $scope.sortColumn = "name";
      $scope.drivers= drivers;
+
+     $scope.search = function(item){
+         if($scope.searchText == undefined){
+             return true;
+         }else{
+             if(item.name.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1 ||
+                item.gender.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1
+             ){
+                 return true;
+             }
+         }
+         return false;
+     }
 
         //     var technologies=[
         //         {
