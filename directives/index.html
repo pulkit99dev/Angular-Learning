@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="index.js"></script>
+    <title>Directives(include)</title>
+    <style>
+        table, th, tr, td{
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div  ng-controller="myController">
+        Select View Style <select ng-model="dataView">
+            <option value="index-table.html">Table</option>
+            <option value="index-list.html">List</option>
+        </select>
+        <br>
+        <div ng-include="dataView">
+        </div>
+    </div>
+    
+</body>
+</html>
