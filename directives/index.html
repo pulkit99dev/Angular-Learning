@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.29/angular-ui-router.js" integrity="sha512-X4A/kmx6SitMDOtgnd2ijE39awKTnh3CqJ1vVhT8M9u3T+ikdMMGsBP05YHsJTfme2RsU28HyiQ9udRKjgPOuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
     <title>Directives(include)</title>
     <style>
@@ -12,6 +13,7 @@
     </style>
 </head>
 <body ng-app="myApp">
+    <ui-view></ui-view>
     <div  ng-controller="myController">
         Select View Style <select ng-model="dataView">
             <option value="index-table.html">Table</option>

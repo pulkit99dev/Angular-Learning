@@ -1,5 +1,5 @@
 var app = angular
-        .module('myApp', [])
+        .module('myApp', ['ui.router'])
         .controller('myController', function($scope){
                 var drivers=[
                     {
